@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #333;
+}
+
+@font-face {
+  font-family: '站酷快乐体';
+  src: url('static/font/zkf.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.typing-wrapper {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.typing {
+  position: relative;
+  font-family: monospace;
+  font-size: clamp(30px, 4vw, 50px);
+  color: white;
+  width: 18ch;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: t 2.5s steps(18);
+}
+
+.typing::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 3px;
+  background: white;
+  border-radius: 3px;
+  animation: b 0.7s ease-in-out 8 forwards;
+}
+
+@keyframes t { from { width: 0; } }
+@keyframes b { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+
+/* Gemini太好用了你知道吗 */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 1s;
+}
+
+#loader.fade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-box { text-align: center; }
+.loading-icon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  background: url("static/image/load.gif") center/contain no-repeat;
+  border-radius: 20px;
+}
+
+.loading-text {
+  color: white;
+  margin-top: 16px;
+  font-size: 16px;
+  letter-spacing: 3px;
+}
+
+.desktop {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('static/image/cover.jpg') center/cover no-repeat;
+  font-family: '站酷快乐体', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 20px;
+}
+
+.window-container {
+  position: relative;
+  width: 90%;
+  max-width: 950px;
+  border-radius: 48px;
+  overflow: hidden;
+  backdrop-filter: blur(25px) saturate(190%) brightness(1.05);
+  -webkit-backdrop-filter: blur(25px) saturate(190%) brightness(1.05);
+  background: rgba(255, 255, 255, 0.1);
+  border: 0.5px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+
+.window-container:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(35px) saturate(210%);
+}
+
+.window-header {
+  display: flex;
+  gap: 12px;
+  padding: 30px 0 0 35px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.close { background: #ff5f56; }
+.minimize { background: #ffbd2e; }
+.maximize { background: #27c93f; }
+
+.window-content {
+  padding: 50px 40px 80px 40px;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.main-text {
+  font-size: 40px;
+  margin-top: 25px;
+}
+
+.separator {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 35px 0;
+  border: none;
+}
+
+.center { text-align: center; }
+
+@media (max-width: 768px) {
+  .window-container {
+    width: 95%;
+    border-radius: 28px;
+    margin: 0 10px;
+  }
+  
+  .window-header {
+    gap: 8px;
+    padding: 20px 0 0 22px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .window-content {
+    padding: 30px 20px 50px 20px;
+  }
+
+  .typing {
+    font-size: clamp(22px, 7.5vw, 32px);
+  }
+
+  .main-text {
+    font-size: clamp(18px, 6vw, 24px);
+    margin-top: 15px;
+  }
+
+  .separator {
+    margin: 20px 0;
+  }
+
+  .loading-icon {
+    width: 90px;
+    height: 90px;
+  }
+}

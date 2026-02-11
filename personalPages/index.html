@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AiYuxi的主页</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="desktop">
+    <div class="window-container">
+      <div class="window-header">
+        <div class="dot close"></div>
+        <div class="dot minimize"></div>
+        <div class="dot maximize"></div>
+      </div>
+      <div class="window-content">
+        <div class="center typing-wrapper">
+          <div class="typing"><em>Here is aiyuxi.cn</em></div>
+        </div>        
+        <hr class="separator">
+        <div class="center main-text"><em>欢迎来到aiyuxi的主页</em></div>
+        <div class="center main-text"><em>aiyuxi❤️CRH1A-1015</em></div>
+        <div class="center main-text"><em>本站使用站酷快乐体</em></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="loader">
+    <div class="loading-box">
+      <div class="loading-icon"></div>
+      <div class="loading-text">加载中</div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const start = performance.now();
+      const MIN = 1000;
+      const FADE = 1000;
+      const loader = document.getElementById('loader');
+      window.addEventListener('load', () => {
+        const elapsed = performance.now() - start;
+        const delay = Math.max(0, MIN - elapsed);
+        setTimeout(() => {
+          loader.classList.add('fade');
+          setTimeout(() => loader.remove(), FADE);
+        }, delay);
+      });
+    })();
+  </script>
+</body>
+</html>
