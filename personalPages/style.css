@@ -27,7 +27,7 @@ body {
 .typing {
   position: relative;
   font-family: monospace;
-  font-size: clamp(30px, 4vw, 50px);
+  font-size: clamp(20px, 5vw, 50px);
   color: white;
   width: 18ch;
   white-space: nowrap;
@@ -91,7 +91,7 @@ body {
   justify-content: center;
   background: url('static/image/cover.jpg') center/cover no-repeat;
   font-family: '站酷快乐体', -apple-system, BlinkMacSystemFont, sans-serif;
-  padding: 20px;
+  padding: 10px;
 }
 
 .window-container {
